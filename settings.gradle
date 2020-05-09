@@ -1,0 +1,2 @@
+rootProject.name='Simple_RxJava_example'
+include ':app'

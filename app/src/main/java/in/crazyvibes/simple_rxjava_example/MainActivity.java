@@ -8,10 +8,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     private String greetings="Hello this is RxJava example";
@@ -29,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
         tvGreeting=findViewById(R.id.tvGreeting);
 
         myObservable=Observable.just(greetings);
+
+        //implementing schedulers
+
+       // myObservable.subscribeOn(Schedulers.io());
+
+      // myObservable.observeOn(AndroidSchedulers.mainThread());
+
+
+
         myObserver=new Observer<String>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {

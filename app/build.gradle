@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "in.crazyvibes.simple_rxjava_example"
-        minSdkVersion 16
+        minSdkVersion 27
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -35,6 +35,5 @@ dependencies {
 
     implementation "io.reactivex.rxjava3:rxjava:3.0.0"
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-
 
 }

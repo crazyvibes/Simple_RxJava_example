@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
@@ -16,13 +19,16 @@ public class MainActivity extends AppCompatActivity {
     private Observer<String> myObserver;
     private String TAG=this.getClass().getName();
 
+    private TextView tvGreeting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myObservable=Observable.just(greetings);
 
+        tvGreeting=findViewById(R.id.tvGreeting);
+
+        myObservable=Observable.just(greetings);
         myObserver=new Observer<String>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
@@ -33,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
             public void onNext(@NonNull String s) {
 
                 Log.i(TAG,"onNext invoked");
+
+                tvGreeting.setText(s);
             }
 
             @Override
@@ -46,5 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         };
+
+        myObservable.subscribe(myObserver);
     }
 }

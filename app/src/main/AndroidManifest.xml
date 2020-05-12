@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".FromArrayOperatorExample"></activity>
         <activity android:name=".ReduceCodeSize" />
         <activity android:name=".CompositeDisposableExample" />
         <activity android:name=".SchedulerExample" />
         <activity android:name=".DisposableObseverExample" />
         <activity android:name=".DisposableExample" />
         <activity android:name=".SimpleRxJavaExample" />
-        <activity android:name=".MainActivity"/>
-            <activity android:name=".JustOperatorExample">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".JustOperatorExample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

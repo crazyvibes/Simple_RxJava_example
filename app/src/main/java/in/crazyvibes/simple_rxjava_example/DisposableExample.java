@@ -1,10 +1,10 @@
 package in.crazyvibes.simple_rxjava_example;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
@@ -15,12 +15,12 @@ public class DisposableExample extends AppCompatActivity {
 
     private String greetings = "Hello this is RxJava example";
     private Observable<String> myObservable;
-     private Observer<String> myObserver;
+    private Observer<String> myObserver;
     private String TAG = this.getClass().getName();
 
     private TextView tvGreeting;
 
-     private Disposable disposable;
+    private Disposable disposable;
 
 
     @Override
@@ -38,7 +38,7 @@ public class DisposableExample extends AppCompatActivity {
             public void onSubscribe(@NonNull Disposable d) {
                 Log.i(TAG, "onSubscribe invoked");
 
-                disposable=d;
+                disposable = d;
             }
 
             @Override
@@ -60,5 +60,11 @@ public class DisposableExample extends AppCompatActivity {
 
         myObservable.subscribe(myObserver);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        disposable.dispose();
     }
 }

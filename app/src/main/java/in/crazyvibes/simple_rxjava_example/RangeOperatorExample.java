@@ -44,8 +44,6 @@ public class RangeOperatorExample extends AppCompatActivity {
                         .subscribeWith(getObserver())
         );
 
-
-
     }
 
     private DisposableObserver getObserver()
